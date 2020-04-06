@@ -7,10 +7,10 @@
     "predeploy": "parcel build index.html --public-url ./",
     "deploy-pages": "gh-pages -d dist"
   },
-  "keywords": [],
-  "author": "",
+  "repository": "https://github.com/EzraKhairanPermana/presentasi-corona-ips-85.git",
+  "author": "Ezra Khairan Permana",
   "license": "MIT",
-  "description": "",
+  "description": "Tugas Presentasi Kelas 85 SMPN 13 Bekasi | Bu Lestari",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "chart.js": "^2.9.3",
@@ -20,5 +20,6 @@
     "cssnano": "^4.1.10",
     "gh-pages": "^2.2.0",
     "parcel-bundler": "^1.12.4"
-  }
+  },
+  "homepage": "https://ezrakhairanpermana.github.io/presentasi-coronavirus-85"
 }
