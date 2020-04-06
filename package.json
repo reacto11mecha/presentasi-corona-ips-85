@@ -1,0 +1,24 @@
+{
+  "name": "ppt-ips-coronavirus-85",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "predeploy": "parcel build index.html --public-url ./",
+    "deploy-pages": "gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "chart.js": "^2.9.3",
+    "webslides": "^1.5.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "gh-pages": "^2.2.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}
