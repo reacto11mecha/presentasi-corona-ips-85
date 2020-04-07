@@ -54,3 +54,27 @@
   font-style: italic;
   font-weight: lighter;
 }
+
+/* Roboto */
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Light.ttf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Italic.ttf");
+  font-style: italic;
+}
