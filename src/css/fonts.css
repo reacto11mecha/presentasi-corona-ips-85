@@ -12,20 +12,13 @@
 
 @font-face {
   font-family: "Open Sans";
+  src: url("../fonts/Open_Sans/OpenSans-Light.ttf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Open Sans";
   src: url("../fonts/Open_Sans/OpenSans-Italic.ttf");
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-ExtraBold.ttf");
-  font-weight: bolder;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf");
-  font-weight: bolder;
   font-style: italic;
 }
 
