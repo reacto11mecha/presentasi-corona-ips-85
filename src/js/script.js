@@ -3,7 +3,7 @@ function splitterNumber(num) {
   return satu.concat(dua);
 }
 
-function errorHandlerFetch(type, error) {
+function errorHandlerFetchChart(type, error) {
   const { loader, canvas, container: mainContent } = type;
   canvas.remove();
 
@@ -93,12 +93,13 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/")
       },
     });
   })
-  .catch((err) => errorHandlerFetch(typeChart.bar, err));
+  .catch((err) => errorHandlerFetchChart(typeChart.bar, err));
 
 fetch("https://api.kawalcorona.com/indonesia/")
   .then((res) => res.json())
   .then((data) => data[0])
-  .then(({ positif, meninggal, sembuh }) => {
+  .then((res) => {
+    let { positif, meninggal, sembuh } = res;
     positif = splitterNumber(positif);
 
     const { canvas, loader } = typeChart.pie;
@@ -117,5 +118,53 @@ fetch("https://api.kawalcorona.com/indonesia/")
         labels: ["Sembuh", "Positif", "Meninggal"],
       },
     });
+
+    return res;
   })
-  .catch((err) => errorHandlerFetch(typeChart.pie, err));
+  .then(({ positif, meninggal, sembuh }) => {
+    const container = document.querySelector(".content-center#angkaCorona");
+
+    const h2 = document.createElement("h2");
+    h2.innerText = "Indonesia";
+
+    const hr = document.createElement("hr");
+
+    const h4pertama = document.createElement("h4");
+    h4pertama.innerHTML = `<span>Jumlah Positif : <span class="ubuntu-bold">${positif}</span></span> | <span class="roboto">Sembuh : <span class="roboto-bold">${sembuh}</span></span>`;
+
+    const h4dua = document.createElement("h4");
+    h4dua.classList.add("osans");
+    h4dua.innerHTML = `Meninggal : <span class="osans-bold">${meninggal}</span>`;
+
+    container.innerHTML = "";
+
+    container.appendChild(h2);
+    container.appendChild(hr);
+    container.appendChild(h4pertama);
+    container.appendChild(h4dua);
+  })
+  .catch((error) => {
+    const bukanContainer = document.querySelector(
+      ".content-center#angkaCorona"
+    );
+
+    const h2 = document.createElement("h2");
+    h2.classList.add("osans-bold");
+    h2.innerHTML = "Mohon Maaf";
+
+    const h3 = document.createElement("h3");
+    h3.classList.add("osans");
+    h3.innerHTML = "Data Tidak Bisa Ditampilkan";
+
+    const p = document.createElement("p");
+    p.classList.add("osans");
+    p.innerHTML = `Ada kesalahan dalam menampilkan data | Error : <span style="color: red;">${error}</span>`;
+
+    bukanContainer.innerHTML = "";
+
+    bukanContainer.appendChild(h2);
+    bukanContainer.appendChild(h3);
+    bukanContainer.appendChild(p);
+
+    errorHandlerFetchChart(typeChart.pie, error);
+  });
