@@ -1,3 +1,8 @@
+function splitterNumber(num) {
+  const [satu, dua] = num.split(",");
+  return satu.concat(dua);
+}
+
 function errorHandlerFetch(type, error) {
   const { loader, canvas, container: mainContent } = type;
   canvas.remove();
@@ -64,7 +69,7 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/")
 
     loader.remove();
 
-    myChartBar = new Chart(canvas, {
+    Chart1 = new Chart(canvas, {
       type: "bar",
       data: {
         labels,
@@ -89,3 +94,28 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/")
     });
   })
   .catch((err) => errorHandlerFetch(typeChart.bar, err));
+
+fetch("https://api.kawalcorona.com/indonesia/")
+  .then((res) => res.json())
+  .then((data) => data[0])
+  .then(({ positif, meninggal, sembuh }) => {
+    positif = splitterNumber(positif);
+
+    const { canvas, loader } = typeChart.pie;
+
+    loader.remove();
+
+    Chart2 = new Chart(canvas, {
+      type: "pie",
+      data: {
+        datasets: [
+          {
+            backgroundColor: ["#28a745", "#ffc107", "#dc3545"],
+            data: [sembuh, positif, meninggal],
+          },
+        ],
+        labels: ["Sembuh", "Positif", "Meninggal"],
+      },
+    });
+  })
+  .catch((err) => errorHandlerFetch(typeChart.pie, err));
