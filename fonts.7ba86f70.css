@@ -1,0 +1,83 @@
+/* Open Sans */
+@font-face {
+  font-family: "Open Sans";
+  src: url("/OpenSans-Regular.b324a72d.ttf");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/OpenSans-Bold.5c2d96ad.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/OpenSans-Light.77024bb6.ttf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/OpenSans-Italic.c9ed0f5b.ttf");
+  font-style: italic;
+}
+
+/* Ubuntu */
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/Ubuntu-Regular.2ccdc47b.ttf");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/Ubuntu-Bold.7ef74f06.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/Ubuntu-Italic.01970e5d.ttf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/Ubuntu-BoldItalic.a63b9422.ttf");
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("/Ubuntu-LightItalic.f482e245.ttf");
+  font-style: italic;
+  font-weight: lighter;
+}
+
+/* Roboto */
+@font-face {
+  font-family: "Roboto";
+  src: url("/Roboto-Regular.2c995fc2.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/Roboto-Bold.4065fd59.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/Roboto-Light.01a1ea02.ttf");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/Roboto-Italic.5756e6d4.ttf");
+  font-style: italic;
+}
+
+
+/*# sourceMappingURL=/fonts.7ba86f70.css.map */
