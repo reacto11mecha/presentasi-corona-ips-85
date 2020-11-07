@@ -12,15 +12,15 @@
   "license": "MIT",
   "description": "Tugas Presentasi Kelas 85 SMPN 13 Bekasi | Bu Lestari",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
-    "chart.js": "^2.9.3",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "chart.js": "^2.9.4",
     "webslides": "^1.5.0"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
-    "gh-pages": "^2.2.0",
-    "parcel-bundler": "^1.12.4",
-    "node-forge": ">=0.10.0"
+    "gh-pages": "^3.1.0",
+    "node-forge": ">=0.10.0",
+    "parcel-bundler": "^1.12.4"
   },
   "homepage": "https://ezrakhairanpermana.github.io/presentasi-coronavirus-85"
 }
