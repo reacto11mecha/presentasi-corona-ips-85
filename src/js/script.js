@@ -43,9 +43,9 @@ const typeChart = {
 let Chart1 = null;
 let Chart2 = null;
 
-fetch("https://api.kawalcorona.com/indonesia/provinsi/")
+fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/")
   .then((res) => res.json())
-  .then((result) => {
+  .then(({ data: result }) => {
     let sembuh = [];
     let positif = [];
     let meninggal = [];
@@ -54,12 +54,12 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/")
 
     const { loader, canvas } = typeChart.bar;
 
-    result.forEach(({ attributes: data }) => {
-      positif.push(data.Kasus_Posi);
-      sembuh.push(data.Kasus_Semb);
-      meninggal.push(data.Kasus_Meni);
+    result.forEach((data) => {
+      positif.push(data.kasusPosi);
+      sembuh.push(data.kasusSemb);
+      meninggal.push(data.kasusMeni);
 
-      labels.push(data.Provinsi);
+      labels.push(data.provinsi);
     });
 
     loader.remove();
@@ -93,7 +93,6 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/")
 fetch("https://indonesia-covid-19.mathdro.id/api/")
   .then((res) => res.json())
   .then((data) => {
-    console.log(data);
     let { jumlahKasus, meninggal, sembuh } = data;
 
     const { canvas, loader } = typeChart.pie;
