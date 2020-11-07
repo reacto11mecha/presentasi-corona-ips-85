@@ -1,1 +1,0 @@
-{"version":3,"sources":["js/script.js"],"names":["window","ws","WebSlides"],"mappings":"AAAAA,MAAM,CAACC,EAAP,GAAY,IAAIC,SAAJ,EAAZ","file":"script.d573be0b.js","sourceRoot":"..","sourcesContent":["window.ws = new WebSlides();\r\n"]}

@@ -118,27 +118,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/js/script.js":[function(require,module,exports) {
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function splitterNumber(num) {
-  var _num$split = num.split(","),
-      _num$split2 = _slicedToArray(_num$split, 2),
-      satu = _num$split2[0],
-      dua = _num$split2[1];
-
-  return satu.concat(dua);
-}
-
 function errorHandlerFetchChart(type, error) {
   var loader = type.loader,
       canvas = type.canvas,
@@ -177,9 +156,10 @@ var typeChart = {
 };
 var Chart1 = null;
 var Chart2 = null;
-fetch("https://api.kawalcorona.com/indonesia/provinsi/").then(function (res) {
+fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/").then(function (res) {
   return res.json();
-}).then(function (result) {
+}).then(function (_ref) {
+  var result = _ref.data;
   var sembuh = [];
   var positif = [];
   var meninggal = [];
@@ -187,12 +167,11 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/").then(function (res) {
   var _typeChart$bar = typeChart.bar,
       loader = _typeChart$bar.loader,
       canvas = _typeChart$bar.canvas;
-  result.forEach(function (_ref) {
-    var data = _ref.attributes;
-    positif.push(data.Kasus_Posi);
-    sembuh.push(data.Kasus_Semb);
-    meninggal.push(data.Kasus_Meni);
-    labels.push(data.Provinsi);
+  result.forEach(function (data) {
+    positif.push(data.kasusPosi);
+    sembuh.push(data.kasusSemb);
+    meninggal.push(data.kasusMeni);
+    labels.push(data.provinsi);
   });
   loader.remove();
   Chart1 = new Chart(canvas, {
@@ -217,15 +196,12 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/").then(function (res) {
 }).catch(function (err) {
   return errorHandlerFetchChart(typeChart.bar, err);
 });
-fetch("https://api.kawalcorona.com/indonesia/").then(function (res) {
+fetch("https://indonesia-covid-19.mathdro.id/api/").then(function (res) {
   return res.json();
 }).then(function (data) {
-  return data[0];
-}).then(function (res) {
-  var positif = res.positif,
-      meninggal = res.meninggal,
-      sembuh = res.sembuh;
-  positif = splitterNumber(positif);
+  var jumlahKasus = data.jumlahKasus,
+      meninggal = data.meninggal,
+      sembuh = data.sembuh;
   var _typeChart$pie = typeChart.pie,
       canvas = _typeChart$pie.canvas,
       loader = _typeChart$pie.loader;
@@ -235,14 +211,14 @@ fetch("https://api.kawalcorona.com/indonesia/").then(function (res) {
     data: {
       datasets: [{
         backgroundColor: ["#28a745", "#ffc107", "#dc3545"],
-        data: [sembuh, positif, meninggal]
+        data: [sembuh, jumlahKasus, meninggal]
       }],
       labels: ["Sembuh", "Positif", "Meninggal"]
     }
   });
-  return res;
+  return data;
 }).then(function (_ref2) {
-  var positif = _ref2.positif,
+  var jumlahKasus = _ref2.jumlahKasus,
       meninggal = _ref2.meninggal,
       sembuh = _ref2.sembuh;
   var container = document.querySelector(".content-center#angkaCorona");
@@ -250,7 +226,7 @@ fetch("https://api.kawalcorona.com/indonesia/").then(function (res) {
   h2.innerText = "Indonesia";
   var hr = document.createElement("hr");
   var h4pertama = document.createElement("h4");
-  h4pertama.innerHTML = "<span>Jumlah Positif : <span class=\"ubuntu-bold\">".concat(positif, "</span></span> | <span class=\"roboto\">Sembuh : <span class=\"roboto-bold\">").concat(sembuh, "</span></span>");
+  h4pertama.innerHTML = "<span>Jumlah Positif : <span class=\"ubuntu-bold\">".concat(jumlahKasus, "</span></span> | <span class=\"roboto\">Sembuh : <span class=\"roboto-bold\">").concat(sembuh, "</span></span>");
   var h4dua = document.createElement("h4");
   h4dua.classList.add("osans");
   h4dua.innerHTML = "Meninggal : <span class=\"osans-bold\">".concat(meninggal, "</span>");
@@ -304,7 +280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51398" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42085" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
