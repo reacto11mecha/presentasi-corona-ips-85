@@ -1,8 +1,3 @@
-function splitterNumber(num) {
-  const [satu, dua] = num.split(",");
-  return satu.concat(dua);
-}
-
 function errorHandlerFetchChart(type, error) {
   const { loader, canvas, container: mainContent } = type;
   canvas.remove();
@@ -95,12 +90,11 @@ fetch("https://api.kawalcorona.com/indonesia/provinsi/")
   })
   .catch((err) => errorHandlerFetchChart(typeChart.bar, err));
 
-fetch("https://api.kawalcorona.com/indonesia/")
+fetch("https://indonesia-covid-19.mathdro.id/api/")
   .then((res) => res.json())
-  .then((data) => data[0])
-  .then((res) => {
-    let { positif, meninggal, sembuh } = res;
-    positif = splitterNumber(positif);
+  .then((data) => {
+    console.log(data);
+    let { jumlahKasus, meninggal, sembuh } = data;
 
     const { canvas, loader } = typeChart.pie;
 
@@ -112,16 +106,16 @@ fetch("https://api.kawalcorona.com/indonesia/")
         datasets: [
           {
             backgroundColor: ["#28a745", "#ffc107", "#dc3545"],
-            data: [sembuh, positif, meninggal],
+            data: [sembuh, jumlahKasus, meninggal],
           },
         ],
         labels: ["Sembuh", "Positif", "Meninggal"],
       },
     });
 
-    return res;
+    return data;
   })
-  .then(({ positif, meninggal, sembuh }) => {
+  .then(({ jumlahKasus, meninggal, sembuh }) => {
     const container = document.querySelector(".content-center#angkaCorona");
 
     const h2 = document.createElement("h2");
@@ -130,7 +124,7 @@ fetch("https://api.kawalcorona.com/indonesia/")
     const hr = document.createElement("hr");
 
     const h4pertama = document.createElement("h4");
-    h4pertama.innerHTML = `<span>Jumlah Positif : <span class="ubuntu-bold">${positif}</span></span> | <span class="roboto">Sembuh : <span class="roboto-bold">${sembuh}</span></span>`;
+    h4pertama.innerHTML = `<span>Jumlah Positif : <span class="ubuntu-bold">${jumlahKasus}</span></span> | <span class="roboto">Sembuh : <span class="roboto-bold">${sembuh}</span></span>`;
 
     const h4dua = document.createElement("h4");
     h4dua.classList.add("osans");
