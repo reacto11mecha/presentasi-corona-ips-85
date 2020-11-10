@@ -226,10 +226,10 @@ fetch("https://indonesia-covid-19.mathdro.id/api/").then(function (res) {
   h2.innerText = "Indonesia";
   var hr = document.createElement("hr");
   var h4pertama = document.createElement("h4");
-  h4pertama.innerHTML = "<span>Jumlah Positif : <span class=\"ubuntu-bold\">".concat(jumlahKasus, "</span></span> | <span class=\"roboto\">Sembuh : <span class=\"roboto-bold\">").concat(sembuh, "</span></span>");
+  h4pertama.innerHTML = "<span>Jumlah Positif : <span class=\"ubuntu-bold\">".concat(jumlahKasus.toLocaleString(), "</span></span> | <span class=\"roboto\">Sembuh : <span class=\"roboto-bold\">").concat(sembuh.toLocaleString(), "</span></span>");
   var h4dua = document.createElement("h4");
   h4dua.classList.add("osans");
-  h4dua.innerHTML = "Meninggal : <span class=\"osans-bold\">".concat(meninggal, "</span>");
+  h4dua.innerHTML = "Meninggal : <span class=\"osans-bold\">".concat(meninggal.toLocaleString(), "</span>");
   container.innerHTML = "";
   container.appendChild(h2);
   container.appendChild(hr);
@@ -280,7 +280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42085" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37743" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
