@@ -46,42 +46,27 @@ let Chart2 = null;
 fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/")
   .then((res) => res.json())
   .then(({ data: result }) => {
-    let sembuh = [];
-    let positif = [];
-    let meninggal = [];
-
-    let labels = [];
-
     const { loader, canvas } = typeChart.bar;
-
-    result.forEach((data) => {
-      positif.push(data.kasusPosi);
-      sembuh.push(data.kasusSemb);
-      meninggal.push(data.kasusMeni);
-
-      labels.push(data.provinsi);
-    });
-
     loader.remove();
 
     Chart1 = new Chart(canvas, {
       type: "bar",
       data: {
-        labels,
+        labels: result.map((data) => data.provinsi),
         datasets: [
           {
             label: "Positif",
-            data: positif,
+            data: result.map((data) => data.kasusPosi),
             backgroundColor: "#ffc107",
           },
           {
             label: "Sembuh",
-            data: sembuh,
+            data: result.map((data) => data.kasusSemb),
             backgroundColor: "#28a745",
           },
           {
             label: "Meninggal",
-            data: meninggal,
+            data: result.map((data) => data.kasusMeni),
             backgroundColor: "#dc3545",
           },
         ],
