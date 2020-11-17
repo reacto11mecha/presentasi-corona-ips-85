@@ -108,11 +108,11 @@ fetch("https://indonesia-covid-19.mathdro.id/api/")
     const hr = document.createElement("hr");
 
     const h4pertama = document.createElement("h4");
-    h4pertama.innerHTML = `<span>Jumlah Positif : <span class="ubuntu-bold">${jumlahKasus.toLocaleString()}</span></span> | <span class="roboto">Sembuh : <span class="roboto-bold">${sembuh.toLocaleString()}</span></span>`;
+    h4pertama.innerHTML = `<span>Jumlah Positif : <span class="ubuntu-bold">${jumlahKasus.toLocaleString()}</span> Orang</span> | <span class="roboto">Sembuh : <span class="roboto-bold">${sembuh.toLocaleString()}</span> Orang</span>`;
 
     const h4dua = document.createElement("h4");
     h4dua.classList.add("osans");
-    h4dua.innerHTML = `Meninggal : <span class="osans-bold">${meninggal.toLocaleString()}</span>`;
+    h4dua.innerHTML = `Meninggal : <span class="osans-bold">${meninggal.toLocaleString()}</span> Orang`;
 
     container.innerHTML = "";
 
