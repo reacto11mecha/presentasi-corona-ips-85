@@ -160,35 +160,33 @@ fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/").then(function (res)
   return res.json();
 }).then(function (_ref) {
   var result = _ref.data;
-  var sembuh = [];
-  var positif = [];
-  var meninggal = [];
-  var labels = [];
   var _typeChart$bar = typeChart.bar,
       loader = _typeChart$bar.loader,
       canvas = _typeChart$bar.canvas;
-  result.forEach(function (data) {
-    positif.push(data.kasusPosi);
-    sembuh.push(data.kasusSemb);
-    meninggal.push(data.kasusMeni);
-    labels.push(data.provinsi);
-  });
   loader.remove();
   Chart1 = new Chart(canvas, {
     type: "bar",
     data: {
-      labels: labels,
+      labels: result.map(function (data) {
+        return data.provinsi;
+      }),
       datasets: [{
         label: "Positif",
-        data: positif,
+        data: result.map(function (data) {
+          return data.kasusPosi;
+        }),
         backgroundColor: "#ffc107"
       }, {
         label: "Sembuh",
-        data: sembuh,
+        data: result.map(function (data) {
+          return data.kasusSemb;
+        }),
         backgroundColor: "#28a745"
       }, {
         label: "Meninggal",
-        data: meninggal,
+        data: result.map(function (data) {
+          return data.kasusMeni;
+        }),
         backgroundColor: "#dc3545"
       }]
     }
@@ -280,7 +278,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37743" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36837" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
