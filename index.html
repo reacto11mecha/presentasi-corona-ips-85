@@ -23,11 +23,16 @@
     <link
       rel="preload"
       href="./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"
+      as="font"
     />
-    <link rel="preload" href="./src/fonts/Roboto/Roboto-Regular.ttf" />
-    <link rel="preload" href="./src/fonts/Roboto/Roboto-Light.ttf" />
-    <link rel="preload" href="./src/fonts/Roboto/Roboto-Italic.ttf" />
-    <link rel="preload" href="./src/fonts/Ubuntu/Ubuntu-Bold.ttf" />
+    <link
+      rel="preload"
+      href="./src/fonts/Roboto/Roboto-Regular.ttf"
+      as="font"
+    />
+    <link rel="preload" href="./src/fonts/Roboto/Roboto-Light.ttf" as="font" />
+    <link rel="preload" href="./src/fonts/Roboto/Roboto-Italic.ttf" as="font" />
+    <link rel="preload" href="./src/fonts/Ubuntu/Ubuntu-Bold.ttf" as="font" />
 
     <title>Presentasi Penyebaran Virus COVID-19 | IPS Kelas 8</title>
   </head>
@@ -332,7 +337,11 @@
     <!-- JS::Organ -->
     <script src="./node_modules/webslides/static/js/webslides.min.js"></script>
     <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
-    <script src="./node_modules/chart.js/dist/Chart.min.js"></script>
+    <script
+      async
+      defer
+      src="./node_modules/chart.js/dist/Chart.min.js"
+    ></script>
     <!-- JS::Core -->
     <script src="./src/js/script.js"></script>
   </body>
