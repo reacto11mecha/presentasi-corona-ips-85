@@ -11,13 +11,23 @@
     />
     <link
       rel="stylesheet"
-      href="./node_modules/@fortawesome/fontawesome-free/css/all.css"
+      href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
     />
-    <link rel="stylesheet" href="./node_modules/chart.js/dist/Chart.css" />
+    <link rel="stylesheet" href="./node_modules/chart.js/dist/Chart.min.css" />
 
     <!-- My CSS -->
     <link rel="stylesheet" href="./src/css/fonts.css" />
     <link rel="stylesheet" href="./src/css/style.css" />
+
+    <!-- Preload -->
+    <link
+      rel="preload"
+      href="./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"
+    />
+    <link rel="preload" href="./src/fonts/Roboto/Roboto-Regular.ttf" />
+    <link rel="preload" href="./src/fonts/Roboto/Roboto-Light.ttf" />
+    <link rel="preload" href="./src/fonts/Roboto/Roboto-Italic.ttf" />
+    <link rel="preload" href="./src/fonts/Ubuntu/Ubuntu-Bold.ttf" />
 
     <title>Presentasi Penyebaran Virus COVID-19 | IPS Kelas 8</title>
   </head>
@@ -27,9 +37,7 @@
         <section>
           <div class="wrap">
             <div class="content-top">
-              <h1 class="text-landing">
-                Presentasi IPS COVID-19
-              </h1>
+              <h1 class="text-landing">Presentasi IPS COVID-19</h1>
             </div>
           </div>
           <footer class="bg-white">
@@ -111,14 +119,12 @@
         <section class="bg-black zoomIn">
           <span
             class="background dark"
-            style="background-image: url('./src/img/corona.jpeg');"
+            style="background-image: url('./src/img/corona.jpeg')"
           ></span>
           <div class="wrap">
             <div class="content-center">
               <h4 class="osans">Apa itu Virus COVID-19 ?</h4>
-              <h5 class="ubuntu-lighter">
-                Dan Bagaimana Penyebarannya ?
-              </h5>
+              <h5 class="ubuntu-lighter">Dan Bagaimana Penyebarannya ?</h5>
             </div>
           </div>
         </section>
@@ -127,7 +133,7 @@
             <div class="grid">
               <div class="column">
                 <h3 class="osans-bold aligncenter slideInRight">Corona</h3>
-                <hr style="background-color: white;" />
+                <hr style="background-color: white" />
                 <p class="osans-lighter fadeInUp">
                   <code>Coronavirus</code> atau <code>Sars-CoV-2</code> adalah
                   Penyakit infeksi saluran pernapasan yang awal gejalanya flu,
@@ -138,10 +144,8 @@
                 </p>
               </div>
               <div class="column ubuntu">
-                <h3 class="ubuntu-bold aligncenter slideInRight">
-                  Penamaan
-                </h3>
-                <hr style="background-color: white;" />
+                <h3 class="ubuntu-bold aligncenter slideInRight">Penamaan</h3>
+                <hr style="background-color: white" />
                 <ol class="fadeInUp">
                   <li>
                     Severe Acute Respiratory Syndrome Coronavirus 2 (SARC-CoV-2)
@@ -151,7 +155,7 @@
               </div>
               <div class="column roboto">
                 <h3 class="roboto-bold aligncenter slideInRight">Gejala</h3>
-                <hr style="background-color: white;" />
+                <hr style="background-color: white" />
                 <ol class="fadeInUp">
                   <li>Demam &GreaterEqual;38&deg;C</li>
                   <li>Kelelahan / Lemas</li>
@@ -217,7 +221,7 @@
               </figure>
               <div class="flex-content slideInRight bg-black">
                 <h3 class="osans">Kronologi Penyebaran</h3>
-                <hr style="background-color: white;" />
+                <hr style="background-color: white" />
                 <p class="ubuntu">
                   Pada awalnya, virus corona muncul di Kota <b>Wuhan</b>, China.
                   Pada akhirnya menyebar keseluruh dunia dan oleh WHO
@@ -230,7 +234,7 @@
                   <code>Tahun Baru China</code> dimana puncak perpindahan rakyat
                   China.
                 </p>
-                <hr style="background-color: white;" />
+                <hr style="background-color: white" />
               </div>
             </div>
           </div>
@@ -239,7 +243,7 @@
           <div class="wrap">
             <div class="content-left">
               <h3 class="roboto-bold">Masuk Di Indonesia</h3>
-              <hr style="background-color: white;" />
+              <hr style="background-color: white" />
               <p>
                 Pertama kali kasus corona di Indonesia dibawa oleh orang dari
                 Jepang yang sebelumnya berada di Malaysia. Orang Jepang itu
@@ -268,7 +272,7 @@
               <h4 class="osans">Indonesia dikelilingi Negara Terinfeksi</h4>
               <h4 class="ubuntu">COVID-19</h4>
               <hr
-                style="background-color: white; width: 75%; text-align: center;"
+                style="background-color: white; width: 75%; text-align: center"
               />
               <p class="roboto">
                 Dibandingkan dengan Negara-Negara ASEAN, Indonesia termasuk baru
@@ -327,8 +331,8 @@
 
     <!-- JS::Organ -->
     <script src="./node_modules/webslides/static/js/webslides.min.js"></script>
-    <script src="./node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
-    <script src="./node_modules/chart.js/dist/Chart.js"></script>
+    <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <script src="./node_modules/chart.js/dist/Chart.min.js"></script>
     <!-- JS::Core -->
     <script src="./src/js/script.js"></script>
   </body>
