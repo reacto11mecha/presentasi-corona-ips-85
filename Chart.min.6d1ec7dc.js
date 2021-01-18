@@ -184,13 +184,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/webslides/static/css/webslides.css":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/chart.js/dist/Chart.min.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./../images/logos/logo.svg":[["logo.76f0c9ac.svg","node_modules/webslides/static/images/logos/logo.svg"],"node_modules/webslides/static/images/logos/logo.svg"],"./../images/swipe.svg":[["swipe.775783cd.svg","node_modules/webslides/static/images/swipe.svg"],"node_modules/webslides/static/images/swipe.svg"],"./../images/bt-appstore.png":[["bt-appstore.3faee1ee.png","node_modules/webslides/static/images/bt-appstore.png"],"node_modules/webslides/static/images/bt-appstore.png"],"./../images/bt-playstore.png":[["bt-playstore.9c0cf2ae.png","node_modules/webslides/static/images/bt-playstore.png"],"node_modules/webslides/static/images/bt-playstore.png"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -395,4 +395,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/webslides.bbc11dd5.js.map
+//# sourceMappingURL=/Chart.min.6d1ec7dc.js.map

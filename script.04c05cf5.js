@@ -156,10 +156,9 @@ var typeChart = {
 };
 var Chart1 = null;
 var Chart2 = null;
-fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/").then(function (res) {
+fetch("https://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi").then(function (res) {
   return res.json();
-}).then(function (_ref) {
-  var result = _ref.data;
+}).then(function (result) {
   var _typeChart$bar = typeChart.bar,
       loader = _typeChart$bar.loader,
       canvas = _typeChart$bar.canvas;
@@ -173,19 +172,19 @@ fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/").then(function (res)
       datasets: [{
         label: "Positif",
         data: result.map(function (data) {
-          return data.kasusPosi;
+          return data.kasus;
         }),
         backgroundColor: "#ffc107"
       }, {
         label: "Sembuh",
         data: result.map(function (data) {
-          return data.kasusSemb;
+          return data.sembuh;
         }),
         backgroundColor: "#28a745"
       }, {
         label: "Meninggal",
         data: result.map(function (data) {
-          return data.kasusMeni;
+          return data.meninggal;
         }),
         backgroundColor: "#dc3545"
       }]
@@ -194,10 +193,10 @@ fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/").then(function (res)
 }).catch(function (err) {
   return errorHandlerFetchChart(typeChart.bar, err);
 });
-fetch("https://indonesia-covid-19.mathdro.id/api/").then(function (res) {
+fetch("https://apicovid19indonesia-v2.vercel.app/api/indonesia/").then(function (res) {
   return res.json();
 }).then(function (data) {
-  var jumlahKasus = data.jumlahKasus,
+  var positif = data.positif,
       meninggal = data.meninggal,
       sembuh = data.sembuh;
   var _typeChart$pie = typeChart.pie,
@@ -209,22 +208,22 @@ fetch("https://indonesia-covid-19.mathdro.id/api/").then(function (res) {
     data: {
       datasets: [{
         backgroundColor: ["#28a745", "#ffc107", "#dc3545"],
-        data: [sembuh, jumlahKasus, meninggal]
+        data: [sembuh, positif, meninggal]
       }],
       labels: ["Sembuh", "Positif", "Meninggal"]
     }
   });
   return data;
-}).then(function (_ref2) {
-  var jumlahKasus = _ref2.jumlahKasus,
-      meninggal = _ref2.meninggal,
-      sembuh = _ref2.sembuh;
+}).then(function (_ref) {
+  var positif = _ref.positif,
+      meninggal = _ref.meninggal,
+      sembuh = _ref.sembuh;
   var container = document.querySelector(".content-center#angkaCorona");
   var h2 = document.createElement("h2");
   h2.innerText = "Indonesia";
   var hr = document.createElement("hr");
   var h4pertama = document.createElement("h4");
-  h4pertama.innerHTML = "<span>Jumlah Positif : <span class=\"ubuntu-bold\">".concat(jumlahKasus.toLocaleString(), "</span> Orang</span> | <span class=\"roboto\">Sembuh : <span class=\"roboto-bold\">").concat(sembuh.toLocaleString(), "</span> Orang</span>");
+  h4pertama.innerHTML = "<span>Jumlah Positif : <span class=\"ubuntu-bold\">".concat(positif.toLocaleString(), "</span> Orang</span> | <span class=\"roboto\">Sembuh : <span class=\"roboto-bold\">").concat(sembuh.toLocaleString(), "</span> Orang</span>");
   var h4dua = document.createElement("h4");
   h4dua.classList.add("osans");
   h4dua.innerHTML = "Meninggal : <span class=\"osans-bold\">".concat(meninggal.toLocaleString(), "</span> Orang");
@@ -278,7 +277,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40817" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36295" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
