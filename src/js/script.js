@@ -43,9 +43,9 @@ const typeChart = {
 let Chart1 = null;
 let Chart2 = null;
 
-fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/")
+fetch("https://apicovid19indonesia-v2.vercel.app/api/indonesia/provinsi")
   .then((res) => res.json())
-  .then(({ data: result }) => {
+  .then((result) => {
     const { loader, canvas } = typeChart.bar;
     loader.remove();
 
@@ -56,17 +56,17 @@ fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/")
         datasets: [
           {
             label: "Positif",
-            data: result.map((data) => data.kasusPosi),
+            data: result.map((data) => data.kasus),
             backgroundColor: "#ffc107",
           },
           {
             label: "Sembuh",
-            data: result.map((data) => data.kasusSemb),
+            data: result.map((data) => data.sembuh),
             backgroundColor: "#28a745",
           },
           {
             label: "Meninggal",
-            data: result.map((data) => data.kasusMeni),
+            data: result.map((data) => data.meninggal),
             backgroundColor: "#dc3545",
           },
         ],
@@ -75,10 +75,10 @@ fetch("https://indonesia-covid-19.mathdro.id/api/provinsi/")
   })
   .catch((err) => errorHandlerFetchChart(typeChart.bar, err));
 
-fetch("https://indonesia-covid-19.mathdro.id/api/")
+fetch("https://apicovid19indonesia-v2.vercel.app/api/indonesia/")
   .then((res) => res.json())
   .then((data) => {
-    let { jumlahKasus, meninggal, sembuh } = data;
+    let { positif, meninggal, sembuh } = data;
 
     const { canvas, loader } = typeChart.pie;
 
@@ -90,7 +90,7 @@ fetch("https://indonesia-covid-19.mathdro.id/api/")
         datasets: [
           {
             backgroundColor: ["#28a745", "#ffc107", "#dc3545"],
-            data: [sembuh, jumlahKasus, meninggal],
+            data: [sembuh, positif, meninggal],
           },
         ],
         labels: ["Sembuh", "Positif", "Meninggal"],
@@ -99,7 +99,7 @@ fetch("https://indonesia-covid-19.mathdro.id/api/")
 
     return data;
   })
-  .then(({ jumlahKasus, meninggal, sembuh }) => {
+  .then(({ positif, meninggal, sembuh }) => {
     const container = document.querySelector(".content-center#angkaCorona");
 
     const h2 = document.createElement("h2");
@@ -108,7 +108,7 @@ fetch("https://indonesia-covid-19.mathdro.id/api/")
     const hr = document.createElement("hr");
 
     const h4pertama = document.createElement("h4");
-    h4pertama.innerHTML = `<span>Jumlah Positif : <span class="ubuntu-bold">${jumlahKasus.toLocaleString()}</span> Orang</span> | <span class="roboto">Sembuh : <span class="roboto-bold">${sembuh.toLocaleString()}</span> Orang</span>`;
+    h4pertama.innerHTML = `<span>Jumlah Positif : <span class="ubuntu-bold">${positif.toLocaleString()}</span> Orang</span> | <span class="roboto">Sembuh : <span class="roboto-bold">${sembuh.toLocaleString()}</span> Orang</span>`;
 
     const h4dua = document.createElement("h4");
     h4dua.classList.add("osans");
