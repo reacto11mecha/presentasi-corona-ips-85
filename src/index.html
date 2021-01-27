@@ -4,35 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- CSS -->
-    <link
-      rel="stylesheet"
-      href="./node_modules/webslides/static/css/webslides.css"
-    />
-    <link
-      rel="stylesheet"
-      href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./node_modules/chart.js/dist/Chart.min.css" />
-
-    <!-- My CSS -->
-    <link rel="stylesheet" href="./src/css/fonts.css" />
-    <link rel="stylesheet" href="./src/css/style.css" />
-
-    <!-- Preload -->
-    <link
-      rel="preload"
-      href="./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf"
-      as="font"
-    />
-    <link
-      rel="preload"
-      href="./src/fonts/Roboto/Roboto-Regular.ttf"
-      as="font"
-    />
-    <link rel="preload" href="./src/fonts/Roboto/Roboto-Light.ttf" as="font" />
-    <link rel="preload" href="./src/fonts/Roboto/Roboto-Italic.ttf" as="font" />
-    <link rel="preload" href="./src/fonts/Ubuntu/Ubuntu-Bold.ttf" as="font" />
+    <link rel="preconnect" href="https://apicovid19indonesia-v2.vercel.app" />
 
     <title>Presentasi Penyebaran Virus COVID-19 | IPS Kelas 8</title>
   </head>
@@ -40,6 +12,18 @@
     <main role="main">
       <article id="webslides">
         <section>
+          <header>
+            <div class="wrap">
+              <div class="alignright">
+                <button
+                  class="btn-fullscreen"
+                  style="border: none; background-color: #f7f9fb"
+                >
+                  <i class="icon-expand" style="cursor: pointer"></i>
+                </button>
+              </div>
+            </div>
+          </header>
           <div class="wrap">
             <div class="content-top">
               <h1 class="text-landing">Presentasi IPS COVID-19</h1>
@@ -52,10 +36,13 @@
                 <span class="alignright">
                   <a
                     href="https://github.com/EzraKhairanPermana/presentasi-corona-ips-85"
-                    ><i class="fab fa-github"></i
+                    rel="noopener noreferrer"
+                    ><i class="icon-github"></i
                   ></a>
-                  <a href="https://instagram.com/ezra.khairan"
-                    ><i class="fab fa-instagram"></i></a
+                  <a
+                    href="https://instagram.com/ezra.khairan"
+                    rel="noopener noreferrer"
+                    ><i class="icon-instagram"></i></a
                 ></span>
               </p>
             </div>
@@ -124,7 +111,7 @@
         <section class="bg-black zoomIn">
           <span
             class="background dark"
-            style="background-image: url('./src/img/corona.jpeg')"
+            style="background-image: url('./img/corona.jpeg')"
           ></span>
           <div class="wrap">
             <div class="content-center">
@@ -212,13 +199,14 @@
             <div class="card-50 bg-white">
               <figure>
                 <img
-                  src="./src/img/pesebaran-corona.jpg"
+                  src="./img/pesebaran-corona.jpg"
                   alt="Gambar Penyebaran Corona"
                 />
                 <figcaption>
                   <a
                     href="https://kompas.com/tren/read/2020/02/11/082948565/virus-corona-di-asia-tenggara-status-singapura-oranye-18-terinfeksi-di"
                     title="Sumber : kompas.com"
+                    rel="noopener noreferrer"
                     target="_blank"
                     >Sumber Gambar</a
                   >
@@ -234,6 +222,7 @@
                   <a
                     target="_blank"
                     href="https://id.wikipedia.org/wiki/Pandemi"
+                    rel="noopener noreferrer"
                     >Pandemi</a
                   >. Pada saat Wuhan merebak virus corona, terjadi yaitu
                   <code>Tahun Baru China</code> dimana puncak perpindahan rakyat
@@ -265,6 +254,7 @@
                 class="aligncenter"
                 href="https://www.kompas.com/global/read/2020/03/02/125038370/indonesia-umumkan-kasus-pertama-virus-corona-begini-pemberitaan-media?page=all#page2"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Sumber Berita
               </a>
@@ -333,16 +323,5 @@
         </section>
       </article>
     </main>
-
-    <!-- JS::Organ -->
-    <script src="./node_modules/webslides/static/js/webslides.min.js"></script>
-    <script src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
-    <script
-      async
-      defer
-      src="./node_modules/chart.js/dist/Chart.min.js"
-    ></script>
-    <!-- JS::Core -->
-    <script src="./src/js/script.js"></script>
   </body>
 </html>
