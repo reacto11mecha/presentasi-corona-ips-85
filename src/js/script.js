@@ -1,4 +1,6 @@
 import "../styles/iconmoon.css";
+import "../styles/imagefix.css";
+
 import "webslides/static/css/webslides.css";
 import("webslides").then(() => {
   const slide = new WebSlides();
