@@ -1,5 +1,7 @@
 const path = require("path");
+const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const PurgecssPlugin = require("purgecss-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -77,6 +79,27 @@ module.exports = {
     new MiniCSSExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css",
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+      safelist: () => ({
+        standard: [
+          "webslides-zoomed",
+          "text-slide-number",
+          /^text-slide-/,
+          "navigation",
+          "zoom-layer",
+          "wrap-zoom",
+          "previous",
+          "current",
+          "counter",
+          "disabled",
+          "footer",
+          /^footer/,
+          "next",
+          "in",
+        ],
+      }),
     }),
   ],
 };
