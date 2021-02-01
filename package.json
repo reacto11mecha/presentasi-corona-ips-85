@@ -1,7 +1,7 @@
 {
   "name": "ppt-ips-coronavirus-85",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "src/index.html",
   "scripts": {
     "dev": "webpack --mode development",
     "serve": "webpack serve --mode development",
@@ -9,7 +9,7 @@
     "rebuild": "npm rebuild",
     "deploy": "gh-pages -d dist"
   },
-  "repository": "https://github.com/EzraKhairanPermana/presentasi-corona-ips-85.git",
+  "repository": "https://github.com/reacto11mecha/presentasi-corona-ips-85.git",
   "author": "Ezra Khairan Permana",
   "license": "MIT",
   "description": "Tugas Presentasi Kelas 85 SMPN 13 Bekasi | Bu Lestari",
@@ -33,5 +33,5 @@
     "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "homepage": "https://ezrakhairanpermana.github.io/presentasi-coronavirus-85"
+  "homepage": "https://reacto11mecha.github.io/presentasi-corona-ips-85"
 }
