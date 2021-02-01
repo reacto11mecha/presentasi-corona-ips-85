@@ -1,5 +1,5 @@
 import "../styles/iconmoon.css";
-import "../styles/imagefix.css";
+import "../styles/main.css";
 
 import "webslides/static/css/webslides.css";
 import("webslides").then(() => {

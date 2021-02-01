@@ -1,0 +1,68 @@
+/* Open Sans */
+.osans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.osans-bold {
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+.osans-lighter {
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+}
+
+/* Ubuntu */
+.ubuntu {
+  font-family: "Roboto", sans-serif;
+}
+
+.ubuntu-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.ubuntu-lighter {
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+}
+
+/* Roboto */
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+.roboto-lighter {
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+}
+
+#span-corona {
+  background-image: url("../img/corona.jpeg");
+}
+
+.loader {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 50%;
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
