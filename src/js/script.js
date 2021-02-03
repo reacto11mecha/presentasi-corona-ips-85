@@ -1,3 +1,4 @@
+import(/* webpackPreload: true */ "../fonts/icomoon.ttf");
 import "../styles/iconmoon.css";
 import "../styles/main.css";
 
