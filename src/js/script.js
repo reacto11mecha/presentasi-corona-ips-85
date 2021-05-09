@@ -18,7 +18,7 @@ function handleIntersection(entries, observer) {
   });
 }
 
-import("webslides").then(() => {
+import("webslides").then(async () => {
   const slide = new WebSlides();
 
   const fl = document.querySelector(".btn-fullscreen");
@@ -26,9 +26,14 @@ import("webslides").then(() => {
     if (slide.initialised) slide.fullscreen();
     this.blur();
   });
-});
 
-(async () => {
+  const { Chart, registerables } = await import("chart.js").then((mod) => ({
+    Chart: mod.Chart,
+    registerables: mod.registerables,
+  }));
+
+  Chart.register(...registerables);
+
   const errorFetch = await import("./errorFetch").then(
     (mod) => mod.errorHandlerFetchChart
   );
@@ -44,8 +49,6 @@ import("webslides").then(() => {
         .then(async (result) => {
           const { loader, canvas } = typeChart.bar;
           loader.remove();
-
-          const Chart = await import("chart.js").then((mod) => mod.default);
 
           new Chart(canvas, {
             type: "bar",
@@ -88,7 +91,6 @@ import("webslides").then(() => {
           const { canvas, loader } = typeChart.pie;
 
           loader.remove();
-          const Chart = await import("chart.js").then((mod) => mod.default);
 
           new Chart(canvas, {
             type: "pie",
@@ -159,4 +161,4 @@ import("webslides").then(() => {
     }
   });
   observerChart2.observe(typeChart.pie.container);
-})();
+});
