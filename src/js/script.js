@@ -1,7 +1,23 @@
+import "webslides/static/css/webslides.css";
 import "../styles/iconmoon.css";
 import "../styles/main.css";
 
-import "webslides/static/css/webslides.css";
+import lazyLoadImage from "./lazyLoadImage";
+
+const images = Array.from(document.querySelectorAll("img[data-src]"));
+
+const observer = new IntersectionObserver(handleIntersection);
+images.forEach((img) => observer.observe(img));
+
+function handleIntersection(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.intersectionRatio > 0) {
+      lazyLoadImage(entry.target.dataset.src, entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}
+
 import("webslides").then(() => {
   const slide = new WebSlides();
 
@@ -12,7 +28,7 @@ import("webslides").then(() => {
   });
 });
 
-import("intersection-observer").then(async () => {
+(async () => {
   const errorFetch = await import("./errorFetch").then(
     (mod) => mod.errorHandlerFetchChart
   );
@@ -143,4 +159,4 @@ import("intersection-observer").then(async () => {
     }
   });
   observerChart2.observe(typeChart.pie.container);
-});
+})();
