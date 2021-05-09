@@ -12,7 +12,7 @@ const isProduction =
   process.argv[process.argv.indexOf("--mode") + 1] === "production";
 const cssInjector = isProduction ? MiniCSSExtractPlugin.loader : "style-loader";
 
-module.exports = {
+const config = {
   entry: {
     main: path.resolve(__dirname, "./src/js/script.js"),
   },
@@ -22,7 +22,6 @@ module.exports = {
   },
   optimization: {
     minimize: isProduction,
-    minimizer: isProduction && [new CssMinimizerPlugin(), new TerserPlugin()],
     splitChunks: {
       cacheGroups: {
         styles: {
@@ -43,16 +42,6 @@ module.exports = {
         generator: {
           filename: "[name][ext]",
         },
-        use: [
-          isProduction && {
-            loader: ImageMinimizerPlugin.loader,
-            options: {
-              minimizerOptions: {
-                plugins: ["mozjpeg", "pngquant", "svgo"],
-              },
-            },
-          },
-        ],
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
@@ -70,33 +59,54 @@ module.exports = {
       template: path.resolve(__dirname, "./src/index.html"),
       filename: "index.html",
     }),
-    isProduction &&
-      new MiniCSSExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css",
-      }),
-    isProduction &&
-      new PurgecssPlugin({
-        paths: glob.sync(`${path.resolve(__dirname, "./src")}/**/*`, {
-          nodir: true,
-        }),
-        safelist: () => ({
-          standard: [
-            "webslides-zoomed",
-            "text-slide-number",
-            /^text-slide-/,
-            "navigation",
-            "zoom-layer",
-            "wrap-zoom",
-            "previous",
-            "ws-ready",
-            "disabled",
-            "current",
-            "counter",
-            "next",
-            "in",
-          ],
-        }),
-      }),
   ],
 };
+
+if (isProduction) {
+  const pluginTambahan = [
+    new MiniCSSExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${path.resolve(__dirname, "./src")}/**/*`, {
+        nodir: true,
+      }),
+      safelist: () => ({
+        standard: [
+          "webslides-zoomed",
+          "text-slide-number",
+          /^text-slide-/,
+          "navigation",
+          "zoom-layer",
+          "wrap-zoom",
+          "previous",
+          "ws-ready",
+          "disabled",
+          "current",
+          "counter",
+          "next",
+          "in",
+        ],
+      }),
+    }),
+  ];
+
+  const use = [
+    {
+      loader: ImageMinimizerPlugin.loader,
+      options: {
+        minimizerOptions: {
+          plugins: ["mozjpeg", "pngquant", "svgo"],
+        },
+      },
+    },
+  ];
+  const minimizer = [new CssMinimizerPlugin(), new TerserPlugin()];
+
+  config.optimization.minimizer = minimizer;
+  config.module.rules[0].use = use;
+  config.plugins.push(...pluginTambahan);
+}
+
+module.exports = config;
