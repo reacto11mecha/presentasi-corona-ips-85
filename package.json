@@ -13,7 +13,7 @@
   "description": "Tugas Presentasi Kelas 85 SMPN 13 Bekasi | Bu Lestari",
   "homepage": "https://reacto11mecha.github.io/presentasi-corona-ips-85",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "chart.js": "^3.2.1",
     "webslides": "^1.5.0"
   },
